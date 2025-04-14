@@ -188,7 +188,7 @@ void MainWindow::initWidgets() {
   connect(m_tare_bttn, &QPushButton::pressed, this,
           &MainWindow::sendTareCommand);
   m_calibration_spbox = new QSpinBox();
-  m_calibration_spbox->setRange(-100000, 0);
+  m_calibration_spbox->setRange(-100000, 100000);
   m_calibration_spbox->setDisabled(true);
   connect(m_calibration_spbox, &QSpinBox::valueChanged, this,
           &MainWindow::sendCalibrationCommand);
@@ -229,7 +229,7 @@ void MainWindow::initSerialPort() {
     m_serial_port->setDataTerminalReady(false);
     m_tare_bttn->setDisabled(false);
     m_calibration_spbox->setDisabled(false);
-    m_calibration_spbox->setValue(-100000);
+    m_calibration_spbox->setValue(100000);
     qDebug() << "Serial port opened successfully";
   }
 }
